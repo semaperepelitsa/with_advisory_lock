@@ -45,7 +45,7 @@ module WithAdvisoryLock
 
     def self.lock_stack
       # access doesn't need to be synchronized as it is only accessed by the current fiber/thread.
-      Fiber.current[:with_advisory_lock_stack] ||= []
+      Fiber[:with_advisory_lock_stack] ||= []
     end
     delegate :lock_stack, to: 'self.class'
 
